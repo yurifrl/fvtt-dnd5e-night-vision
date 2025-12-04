@@ -23,7 +23,7 @@ Hooks.on('init', () => {
 
 	game.settings.register("wfrp4e-night-vision", "nightVisionDistance", {
 		name: "Night Vision range (per rank)",
-		hint: "Distance per rank in your scene's grid units. RAW: 20 yards (~18 meters). Set to 18 if using meters.",
+		hint: "Distance in meters per rank of Night Vision.",
 		scope: "world",
 		config: true,
 		default: 20,
