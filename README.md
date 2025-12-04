@@ -2,19 +2,15 @@
 
 Automates **Darkvision** for D&D 5th Edition in Foundry VTT.
 
-## What It Does
+## How It Works
 
-Tokens with Darkvision see extended dim light radius from all light sources. Scales with darkvision range (60ft, 120ft, etc).
+Tokens with Darkvision see extended dim light radius from all light sources. The module reads darkvision range from the actor's senses and scales accordingly (60ft = 1x, 120ft = 2x).
 
-## Installation
+## How To Use
 
-1. In Foundry VTT, go to **Add-on Modules** → **Install Module**
-2. Paste this manifest URL:
-   ```
-   https://github.com/yurifrl/fvtt-dnd5e-night-vision/releases/latest/download/module.json
-   ```
-3. Click **Install**
-4. Enable the module in your world
+1. Enable the module in your D&D 5e world
+2. Make sure your tokens have Darkvision set in their actor sheet (Features → Senses)
+3. That's it - dim light from all sources automatically extends for those tokens
 
 ## Configuration
 
@@ -26,22 +22,23 @@ Tokens with Darkvision see extended dim light radius from all light sources. Sca
 | **Requires selection** | Players must select a token to see the effect | Off |
 | **Affects bright illumination** | Also increases bright light radius (by half) | Off |
 
-## Features
+### Per-Scene / Per-Light Disable
 
-- **Scales with Darkvision range**: 120ft darkvision = 2x effect
-- **Per-scene toggle**: Disable on specific scenes
-- **Per-light toggle**: Exclude specific lights from enhancement
-- **GM mode**: GMs see worst Darkvision among selected tokens
-- **Player mode**: Players see best Darkvision among owned tokens
+- **Scene**: Open Scene Config → check "Disable Darkvision"
+- **Light**: Open Light Config → Advanced → check "Disable Darkvision"
 
 ## Limitations
 
 **Does not grant vision in total darkness.** Only enhances existing light sources.
 
-## Compatibility
+## Installation
 
-- **Foundry VTT**: v12+ (verified on v13)
-- **System**: D&D 5e
+1. In Foundry VTT: **Add-on Modules** → **Install Module**
+2. Paste manifest URL:
+   ```
+   https://github.com/yurifrl/fvtt-dnd5e-night-vision/releases/latest/download/module.json
+   ```
+3. Install and enable in your world
 
 ## License
 
