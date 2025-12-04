@@ -1,54 +1,47 @@
-# WFRP4e Night Vision
+# D&D 5e Darkvision
 
-Automates the **Night Vision** talent for Warhammer Fantasy Roleplay 4th Edition in Foundry VTT.
+Automates **Darkvision** for D&D 5th Edition in Foundry VTT.
 
 ## What It Does
 
-Tokens with the Night Vision talent/trait see extended dim light radius from all light sources. The effect stacks with multiple ranks.
+Tokens with Darkvision see extended dim light radius from all light sources. Scales with darkvision range (60ft, 120ft, etc).
 
 ## Installation
 
 1. In Foundry VTT, go to **Add-on Modules** → **Install Module**
 2. Paste this manifest URL:
    ```
-   https://github.com/yurifrl/fvtt-wfrp4e-night-vision/releases/latest/download/module.json
+   https://github.com/yurifrl/fvtt-dnd5e-night-vision/releases/latest/download/module.json
    ```
 3. Click **Install**
 4. Enable the module in your world
 
 ## Configuration
 
-**Configure Settings** → **Module Settings** → **Night Vision (WFRP4e)**
+**Configure Settings** → **Module Settings** → **Night Vision (D&D 5e)**
 
 | Setting | Description | Default |
 |---------|-------------|---------|
-| **Night Vision range** | Meters per rank | 20 |
+| **Darkvision range** | Meters per 60ft of Darkvision | 20 |
 | **Requires selection** | Players must select a token to see the effect | Off |
 | **Affects bright illumination** | Also increases bright light radius (by half) | Off |
 
 ## Features
 
-- **Per-rank stacking**: Multiple ranks increase the effect
-- **Per-scene toggle**: Disable on specific scenes (e.g., magical darkness)
+- **Scales with Darkvision range**: 120ft darkvision = 2x effect
+- **Per-scene toggle**: Disable on specific scenes
 - **Per-light toggle**: Exclude specific lights from enhancement
-- **GM mode**: When "requires selection" is on, GMs see the worst Night Vision among selected tokens
-- **Player mode**: Players see the best Night Vision among their owned tokens
+- **GM mode**: GMs see worst Darkvision among selected tokens
+- **Player mode**: Players see best Darkvision among owned tokens
 
 ## Limitations
 
 **Does not grant vision in total darkness.** Only enhances existing light sources.
 
-**Workaround for starlight/moonlight:** Set token's **Sight Range** to 20 meters in token configuration.
-
 ## Compatibility
 
 - **Foundry VTT**: v12+ (verified on v13)
-- **System**: WFRP4e
-
-## Credits
-
-- Original module by [TheFirst05](https://github.com/TheFirst05/fvtt-wfrp4e-night-vision)
-- Fork by [yurifrl](https://github.com/yurifrl)
+- **System**: D&D 5e
 
 ## License
 
