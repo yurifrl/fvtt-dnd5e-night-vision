@@ -1,7 +1,7 @@
 {
   "id": "wfrp4e-night-vision",
-  "title": "Night Vision (WFPR4e)",
-  "version": "1.3.0",
+  "title": "Night Vision (WFRP4e)",
+  "version": "1.4.0",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
@@ -15,18 +15,22 @@
       }
     ]
   },
-  "description": "Partial automation of the Night Vision talent",
+  "description": "Automates the Night Vision talent for WFRP4e. Supports both yards and meters.",
   "authors": [
     {
       "name": "thefirst",
       "discord": "thefirst5",
+      "flags": {}
+    },
+    {
+      "name": "yurifrl",
       "flags": {}
     }
   ],
   "scripts": [
     "scripts/night_vision_script.js"
   ],
-  "url": "https://github.com/TheFirst05/fvtt-wfrp4e-night-vision",
-  "manifest": "https://github.com/TheFirst05/fvtt-wfrp4e-night-vision/releases/latest/download/module.json",
-  "download": "https://github.com/TheFirst05/fvtt-wfrp4e-night-vision/releases/download/1.3.0/module.zip"
+  "url": "https://github.com/yurifrl/fvtt-wfrp4e-night-vision",
+  "manifest": "https://github.com/yurifrl/fvtt-wfrp4e-night-vision/releases/latest/download/module.json",
+  "download": "https://github.com/yurifrl/fvtt-wfrp4e-night-vision/releases/download/1.4.0/module.zip"
 }

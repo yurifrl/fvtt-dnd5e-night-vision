@@ -22,8 +22,8 @@ Hooks.on('init', () => {
 	});
 
 	game.settings.register("wfrp4e-night-vision", "nightVisionDistance", {
-		name: "Night Vision range",
-		hint: "Modifies the distance granted per rank in Night Vision. Default is 20",
+		name: "Night Vision range (per rank)",
+		hint: "Distance per rank in your scene's grid units. RAW: 20 yards (~18 meters). Set to 18 if using meters.",
 		scope: "world",
 		config: true,
 		default: 20,
@@ -238,7 +238,7 @@ const mixin = Base =>
 			}
 
 			// Define the values for nightvision distance
-			distancePix = game.scenes.viewed.dimensions.distancePixels; // find the pixels per grid unit (assume it's yards)
+			distancePix = game.scenes.viewed.dimensions.distancePixels; // pixels per grid unit (works with any unit - yards, meters, etc.)
 			nightVisionDistance = game.settings.get("wfrp4e-night-vision", "nightVisionDistance");
 
 			//console.log("LOOK HERE", multiplier);
