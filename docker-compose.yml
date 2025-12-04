@@ -1,0 +1,22 @@
+services:
+  foundry:
+    image: felddy/foundryvtt:release
+    hostname: foundry
+    ports:
+      - "30000:30000"
+    environment:
+      FOUNDRY_USERNAME: ${FOUNDRY_USERNAME}
+      FOUNDRY_PASSWORD: ${FOUNDRY_PASSWORD}
+      FOUNDRY_LICENSE_KEY: ${FOUNDRY_LICENSE_KEY}
+      FOUNDRY_ADMIN_KEY: ${FOUNDRY_ADMIN_KEY}
+    volumes:
+      - foundry_data:/data
+      - ./:/data/Data/modules/dnd5e-night-vision:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:30000"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  foundry_data:

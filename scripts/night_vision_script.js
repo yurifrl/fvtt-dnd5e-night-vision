@@ -180,20 +180,26 @@ const mixin = Base =>
 				);
 			};
 
+			// Helper to get darkvision range from token's detection modes
+			const getDarkvision = (token) => {
+				const modes = token.document?.detectionModes ?? [];
+				// Check for both possible IDs: "darkvision" (v12+) and "basicSight" (older)
+				const dvMode = modes.find(m => m.id === "darkvision" || m.id === "basicSight");
+				return (dvMode?.enabled && dvMode?.range) ? dvMode.range : 0;
+			};
+
 			if (gmSelection && relevantTokens.length) {
 				multiplier = { dim: 999, bright: 999 };
 
 				for (const t of relevantTokens) {
-					// D&D 5e: Check darkvision from actor senses
-					const darkvision = t.actor?.system?.attributes?.senses?.darkvision ?? 0;
+					const darkvision = getDarkvision(t);
 					const dvMultiplier = darkvision > 0 ? darkvision / 60 : 0; // Normalize to 60ft = 1x
 					multiplier.dim = Math.min(multiplier.dim, dvMultiplier);
 					multiplier.bright = Math.min(multiplier.bright, dvMultiplier);
 				}
 			} else {
 				for (const t of relevantTokens) {
-					// D&D 5e: Check darkvision from actor senses
-					const darkvision = t.actor?.system?.attributes?.senses?.darkvision ?? 0;
+					const darkvision = getDarkvision(t);
 					const dvMultiplier = darkvision > 0 ? darkvision / 60 : 0; // Normalize to 60ft = 1x
 					multiplier.dim = Math.max(multiplier.dim, dvMultiplier);
 					multiplier.bright = Math.max(multiplier.bright, dvMultiplier);
@@ -204,7 +210,6 @@ const mixin = Base =>
 			nightVisionDistance = game.settings.get("dnd5e-night-vision", "nightVisionDistance");
 
 			if (game.scenes.viewed.getFlag('dnd5e-night-vision', 'disable') !== true) {
-
 				result.dim += multiplier.dim * nightVisionDistance * distancePix;
 
 				if (game.settings.get("dnd5e-night-vision", "nightVisionBright")) {
@@ -218,7 +223,10 @@ const mixin = Base =>
 
 const reinitLights = function () {
 	for (const { object } of canvas.effects.lightSources) {
-		if (!((object instanceof AmbientLight) || (object instanceof Token))) continue;
+		// Use namespaced classes for Foundry v13+
+		const AmbientLightClass = foundry.canvas?.placeables?.AmbientLight ?? AmbientLight;
+		const TokenClass = foundry.canvas?.placeables?.Token ?? Token;
+		if (!((object instanceof AmbientLightClass) || (object instanceof TokenClass))) continue;
 		object.initializeLightSource();
 	}
 }
