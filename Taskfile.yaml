@@ -1,0 +1,6 @@
+version: '3'
+
+tasks:
+  op:inject: 
+    cmds:
+      - op inject --account=my.1password.com -f -i .env.example.op -o .env
